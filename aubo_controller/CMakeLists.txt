@@ -46,7 +46,7 @@ include_directories(SYSTEM ${Boost_INCLUDE_DIR})
 link_directories(${catkin_LIBRARY_DIRS} )
 
 ADD_EXECUTABLE(aubo_joint_trajectory_action src/joint_trajectory_action.cpp)
-TARGET_LINK_LIBRARIES(aubo_joint_trajectory_action industrial_robot_client ${catkin_LIBRARIES})
+TARGET_LINK_LIBRARIES(aubo_joint_trajectory_action ${catkin_LIBRARIES})
 install(TARGETS aubo_joint_trajectory_action DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 #set(${PROJECT_NAME}_SOURCES1

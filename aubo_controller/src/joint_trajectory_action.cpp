@@ -137,10 +137,10 @@ void JointTrajectoryAction::watchdog(const ros::TimerEvent &e)
   }
 }
 
-void JointTrajectoryAction::goalCB(JointTractoryActionServer::GoalHandle & gh)
+void JointTrajectoryAction::goalCB(const JointTractoryActionServer::GoalHandle & goal_handle)
 {
   ROS_INFO("Received new goal");
-
+   JointTractoryActionServer::GoalHandle &gh = const_cast<JointTractoryActionServer::GoalHandle &>(goal_handle);
   // reject all goals as long as we haven't heard from the remote controller
   if (!controller_alive_)
   {
@@ -210,7 +210,7 @@ void JointTrajectoryAction::goalCB(JointTractoryActionServer::GoalHandle & gh)
   }
 }
 
-void JointTrajectoryAction::cancelCB(JointTractoryActionServer::GoalHandle & gh)
+void JointTrajectoryAction::cancelCB(const JointTractoryActionServer::GoalHandle & gh)
 {
 
   ROS_DEBUG("Received action cancel request");
@@ -451,7 +451,7 @@ bool JointTrajectoryAction::withinGoalConstraints(const control_msgs::FollowJoin
 //    ROS_INFO("current position,%f,%f,%f,%f,%f,%f,%f",traj.points[last_point].positions[0],traj.points[last_point].positions[1],traj.points[last_point].positions[2],traj.points[last_point].positions[3],
 //            traj.points[last_point].positions[4],traj.points[last_point].positions[5],traj.points[last_point].positions[6]);
 
-    if (industrial_robot_client::utils::isWithinRange(last_trajectory_state_->joint_names,
+    if (isWithinRange(last_trajectory_state_->joint_names,
                                                       last_trajectory_state_->actual.positions, traj.joint_names,
                                                       traj.points[last_point].positions, goal_threshold_))
     {

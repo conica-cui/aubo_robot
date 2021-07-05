@@ -330,7 +330,7 @@ protected:
 
 
     std::queue<trajectory_msgs::JointTrajectoryPoint> motion_buffer_;
-    double joint_positions_[];
+    double joint_positions_[6];
     std::string initial_joint_state_;
     int rib_buffer_size_;
     bool controller_connected_flag_;

@@ -31,7 +31,7 @@
 import rospy
 import copy
 import threading
-import Queue
+import queue
 
 # Publish
 from sensor_msgs.msg import JointState
@@ -72,7 +72,7 @@ class MotionControllerSimulator():
         rospy.loginfo("Setting motion update rate (hz): %f", self.update_rate)
 
         # Initialize motion buffer (contains joint position lists)
-        self.motion_buffer = Queue.Queue(buffer_size)
+        self.motion_buffer = queue.Queue(buffer_size)
         rospy.logdebug("Setting motion buffer size: %i", buffer_size)
 
         def_joint_names = ["joint_1", "joint_2", "joint_3", "joint_4", "joint_5", "joint_6"]
@@ -221,7 +221,7 @@ class MotionControllerSimulator():
 
         rospy.loginfo('Starting motion worker in motion controller simulator')
         move_duration = rospy.Duration()
-        if self.update_rate <> 0.:
+        if self.update_rate != 0.:
             update_duration = rospy.Duration(1./self.update_rate)
         last_goal_point = JointTrajectoryPoint()
 
