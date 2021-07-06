@@ -21,23 +21,31 @@
         <joint name="wrist2_joint" value="0" />
         <joint name="wrist3_joint" value="0" />
     </group_state>
-    <group_state name="home" group="manipulator_i5">
-        <joint name="foreArm_joint" value="-1.5418" />
-        <joint name="shoulder_joint" value="0" />
-        <joint name="upperArm_joint" value="0" />
-        <joint name="wrist1_joint" value="0" />
-        <joint name="wrist2_joint" value="-1.3742" />
-        <joint name="wrist3_joint" value="0" />
-    </group_state>
+    <group_state name="initial" group="manipulator_i5">
+        <joint name="shoulder_joint" value="1.4890263080596924" />
+        <joint name="upperArm_joint" value="-0.5285424590110779" />
+        <joint name="foreArm_joint" value="-1.6010218858718872" />
+        <joint name="wrist1_joint" value="0.22516924142837524" />
+        <joint name="wrist2_joint" value="-1.5567110776901245" />
+        <joint name="wrist3_joint" value="0.6662165522575378" />
+    </group_state>    
+    <group_state name="photo" group="manipulator_i5">
+        <joint name="shoulder_joint" value="1.4935117959976196 " />
+        <joint name="upperArm_joint" value="0.0543520525097847 " />
+        <joint name="foreArm_joint" value=" -1.183342099189758 " />
+        <joint name="wrist1_joint" value="  0.3051102459430694 " />
+        <joint name="wrist2_joint" value="  -1.574790835380554 " />
+        <joint name="wrist3_joint" value="  0.7412938475608826 " />
+    </group_state> 
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
-    <virtual_joint name="base_link" type="fixed" parent_frame="pedestal" child_link="base_link" />
+    <!-- <virtual_joint name="base_link" type="fixed" parent_frame="world" child_link="base_link" /> -->
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
-    <disable_collisions link1="base_link" link2="pedestal_Link" reason="Adjacent" />
+    <!-- <disable_collisions link1="base_link" link2="pedestal_Link" reason="Adjacent" /> -->
     <disable_collisions link1="base_link" link2="shoulder_Link" reason="Adjacent" />
     <disable_collisions link1="base_link" link2="upperArm_Link" reason="Never" />
     <disable_collisions link1="foreArm_Link" link2="upperArm_Link" reason="Adjacent" />
     <disable_collisions link1="foreArm_Link" link2="wrist1_Link" reason="Adjacent" />
-    <disable_collisions link1="pedestal_Link" link2="shoulder_Link" reason="Never" />
+    <!-- <disable_collisions link1="pedestal_Link" link2="shoulder_Link" reason="Never" /> -->
     <disable_collisions link1="shoulder_Link" link2="upperArm_Link" reason="Adjacent" />
     <disable_collisions link1="shoulder_Link" link2="wrist1_Link" reason="Never" />
     <disable_collisions link1="wrist1_Link" link2="wrist2_Link" reason="Adjacent" />
