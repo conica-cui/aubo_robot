@@ -2,7 +2,7 @@
 
 ```
 source /opt/ros/noetic/setup.bash
-catkin_make --only-pkg-with-deps industrial_msgs industrial_utils industrial_robot_simulator aubo_i5_moveit_config aubo_driver aubo_controller
+catkin_make
 ```
 
 ## Usage
