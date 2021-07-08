@@ -32,7 +32,7 @@ ros2 run ros1_bridge dynamic_bridge
 source ~/aubo_noectic_ws/devel/setup.bash
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/aubo_noectic_ws/src/aubo_robot/aubo_driver/lib/lib64/log4cplus
 export PYTHONPATH=$PYTHONPATH:~/aubo_noectic_ws/src/aubo_robot/aubo_controller/script/aubo_controller
-roslaunch aubo_i5_moveit_config moveit_planning_execution.launch
+roslaunch aubo_i5_moveit_config moveit_planning_execution.launch robot_ip:=127.0.0.1  
 ```
 
 5. aubo_ros2_moveit2 
